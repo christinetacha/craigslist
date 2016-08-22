@@ -1,0 +1,9 @@
+<ul>
+  {{#each model as |category|}}
+    {{listing.date}}: <br>
+    {{listing.title}}: <br>
+    {{listing.poster}}: <br>
+    {{listing.body}}:
+  {{/each}}
+</ul>
+<button {{action 'delete' category}}>Delete Category</button>
