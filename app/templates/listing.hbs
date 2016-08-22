@@ -1,0 +1,11 @@
+<h2>Listings:</h2>
+
+<ul>
+  {{#each model as |listing|}}
+    <li>Posted on: {{listing.date}} by: {{listing.poster}} "{{listing.title}}"</li>
+  {{/each}}
+</ul>
+
+{{new-listing saveListing="saveListing"}}
+
+{{#link-to 'index'}}Home{{/link-to}}
