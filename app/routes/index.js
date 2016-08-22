@@ -1,15 +1,18 @@
 import Ember from 'ember';
 
-var categories = [{
-  id: 1,
-  name: "Pet Services"
-}, {
-  id: 2,
-  name: "Rants and Raves"
-}];
-
 export default Ember.Route.extend({
   model() {
-    return categories;
+    return this.store.findAll("category");
+  },
+  actions: {
+    saveCategory(params) {
+      var newCategory = this.store.createRecord("category", params);
+      newCategory.save();
+      this.transitionTo("index");
+    },
+    destroyCategory(category) {
+      category.destroyRecord();
+      this.transitionTo("index");
+    }
   }
 });

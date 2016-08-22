@@ -2,6 +2,8 @@
 
 <ul>
   {{#each model as |category|}}
-    <li>{{category.name}}</li>
+    {{category-tile category=category destroyCategory="destroyCategory"}}
   {{/each}}
 </ul>
+
+{{new-category saveCategory="saveCategory"}}
