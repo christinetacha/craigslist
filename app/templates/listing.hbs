@@ -2,11 +2,10 @@
 
 <ul>
   {{#each model as |listing|}}
-    <li>Posted on: {{listing.date}} by: {{listing.poster}} "{{listing.title}}"</li>
+    {{listing-tile listing=listing destroyListing="destroyListing"}}
   {{/each}}
 </ul>
 
 {{new-listing saveListing="saveListing"}}
-<button {{action "deleteListing" listing}}>Delete</button>
 
 {{#link-to 'index'}}Home{{/link-to}}
