@@ -13,6 +13,15 @@ export default Ember.Route.extend({
     destroyCategory(category) {
       category.destroyRecord();
       this.transitionTo("index");
+    },
+    updateCategory(category, params) {
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined) {
+          category.set(key, params[key]);
+        }
+      });
+      category.save();
+      this.transitionTo("index");
     }
   }
 });
